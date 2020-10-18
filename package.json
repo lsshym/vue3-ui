@@ -1,6 +1,6 @@
 {
     "name": "@budcaym/miracle-ui",
-    "version": "0.0.2",
+    "version": "0.0.4",
     "private": false,
     "license": "MIT",
     "main": "./dist/miracle-ui.common.js",
