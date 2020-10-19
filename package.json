@@ -21,7 +21,8 @@
     },
     "dependencies": {
         "core-js": "^3.6.5",
-        "vue": "^3.0.0"
+        "vue": "^3.0.0",
+        "vuepress": "^1.7.1"
     },
     "devDependencies": {
         "@types/chai": "^4.2.11",
