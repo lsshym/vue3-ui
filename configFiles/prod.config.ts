@@ -1,5 +1,5 @@
-export const prodConfig = {
+module.exports = {
     entry: {
         app: "./src/index.ts",
     },
-};
+}

@@ -1,5 +1,4 @@
-export const devConfig = {
-    entry: {
-        // app: "./src/index.ts",
-    },
-};
+// 没有东西就不要写
+module.exports = {
+
+}

@@ -1,5 +1,6 @@
-import { devConfig } from "./configFiles/dev.config";
-import { prodConfig } from "./configFiles/prod.config";
+// 路径写全
+const devConfig = require("./configFiles/dev.config.ts");
+const prodConfig = require("./configFiles/prod.config.ts");
 
 const path = require("path");
 module.exports = {
@@ -14,6 +15,9 @@ module.exports = {
             // 为开发环境修改配置...
             Object.assign(config, { ...devConfig });
         }
+        Object.assign(config.resolve.alias, {
+            root: "/",
+        });
         // config.output = {
         //     filename: "miracle-ui.js", //打包后的 文件名称，这个文件名称与项目名称相对应
         //     library: "miracle-ui", // 指定 使用 import 或者 reqire 时的模块名，这里为 import xx from 'star-ui-vue' 或者 require('star-ui-vue')
