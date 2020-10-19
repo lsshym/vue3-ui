@@ -1,8 +1,11 @@
-import Button from './src/button.vue';
+import Button from "./src/button.vue";
 
-/* istanbul ignore next */
-Button.install = function(Vue:any) {
-  Vue.component(Button.name, Button);
+/* 这个方法应该是单独导入时用到的
+import {Button} from 'xxx'
+app.use(Button)
+*/
+Button.install = (app: any) => {
+    app.component(Button.name, Button);
 };
 
 export default Button;
