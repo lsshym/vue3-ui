@@ -1,4 +1,4 @@
-import Button from "../packages/button/index";
+import Button from "../components/button/index";
 
 const components = [Button];
 

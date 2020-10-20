@@ -4,7 +4,7 @@ const prodConfig = require("./configFiles/prod.config.ts");
 
 const path = require("path");
 module.exports = {
-    publicPath: "/dist/", // 打包输出的文件路径
+    publicPath: process.env.NODE_ENV === "production" ? "/dist/" : "./", // 打包输出的文件路径
     outputDir: path.resolve(__dirname, "./dist"), // 打包后输出文件的所在目录
     configureWebpack: (config) => {
         // Object.assign这是什么神奇方法
@@ -16,7 +16,7 @@ module.exports = {
             Object.assign(config, { ...devConfig });
         }
         Object.assign(config.resolve.alias, {
-            root: "/",
+            "root@": "/",
         });
         // config.output = {
         //     filename: "miracle-ui.js", //打包后的 文件名称，这个文件名称与项目名称相对应
