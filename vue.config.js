@@ -1,7 +1,7 @@
 // 路径写全
 const devConfig = require("./configFiles/dev.config.ts");
 const prodConfig = require("./configFiles/prod.config.ts");
-
+const { pluginsConfig } = require("./configFiles/base.config.ts");
 const path = require("path");
 module.exports = {
     publicPath: process.env.NODE_ENV === "production" ? "/dist/" : "./", // 打包输出的文件路径
@@ -18,11 +18,13 @@ module.exports = {
         Object.assign(config.resolve.alias, {
             "root@": "/",
         });
-        // config.output = {
-        //     filename: "miracle-ui.js", //打包后的 文件名称，这个文件名称与项目名称相对应
-        //     library: "miracle-ui", // 指定 使用 import 或者 reqire 时的模块名，这里为 import xx from 'star-ui-vue' 或者 require('star-ui-vue')
-        //     libraryTarget: "umd", // 可以指定生成不同的 umd 的代码， 可以只是 commonjs 标准的，也可以是 amd 标准的， 也可以是只能通过 script 标签引入的
-        //     umdNamedDefine: true, // 会对 umd 的构建过程中的 amd 模块进行命名，  否则就使用 匿名的 define
-        // };
+        const plugins = pluginsConfig();
+        config.plugins = [...config.plugins, ...plugins];
+    },
+    chainWebpack: (config) => {
+        config.plugin("copy").tap(([options]) => {
+            options[0].ignore.push("examples/**/*", "docs/**/*");
+            return [options];
+        });
     },
 };

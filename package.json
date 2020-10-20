@@ -15,18 +15,20 @@
     "scripts": {
         "serve": "vue-cli-service serve",
         "build": "vue-cli-service build",
-        "build-bundle": "vue-cli-service build --target lib --name miracle-ui ./src/index.ts",
+        "build-lib": "vue-cli-service build --target lib --name happy-ui ./src/index.ts",
         "test:unit": "vue-cli-service test:unit",
         "lint": "vue-cli-service lint",
         "docs:dev": "vuepress dev docs",
         "docs:build": "vuepress build docs"
     },
     "dependencies": {
+        "compression-webpack-plugin": "^6.0.3",
         "core-js": "^3.6.5",
         "vue": "^3.0.0",
         "vuepress": "^1.7.1"
     },
     "devDependencies": {
+        "@gfx/zopfli": "^1.0.15",
         "@types/chai": "^4.2.11",
         "@types/mocha": "^5.2.4",
         "@typescript-eslint/eslint-plugin": "^2.33.0",
@@ -39,6 +41,7 @@
         "@vue/compiler-sfc": "^3.0.0",
         "@vue/eslint-config-typescript": "^5.0.2",
         "@vue/test-utils": "^2.0.0-0",
+        "brotli-webpack-plugin": "^1.1.0",
         "chai": "^4.1.2",
         "eslint": "^6.7.2",
         "eslint-plugin-vue": "^7.0.0-0",
