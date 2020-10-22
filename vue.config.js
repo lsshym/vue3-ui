@@ -1,7 +1,6 @@
 // 路径写全
 const devConfig = require("./configFiles/dev.config.ts");
 const prodConfig = require("./configFiles/prod.config.ts");
-const { pluginsConfig } = require("./configFiles/base.config.ts");
 const path = require("path");
 module.exports = {
     publicPath: process.env.NODE_ENV === "production" ? "/dist/" : "./", // 打包输出的文件路径
@@ -18,8 +17,6 @@ module.exports = {
         Object.assign(config.resolve.alias, {
             "root@": "/",
         });
-        const plugins = pluginsConfig();
-        config.plugins = [...config.plugins, ...plugins];
     },
     chainWebpack: (config) => {
         config.plugin("copy").tap(([options]) => {

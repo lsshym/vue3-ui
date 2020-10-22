@@ -18,8 +18,8 @@
         "build-lib": "vue-cli-service build --target lib --name happy-ui ./src/index.ts",
         "test:unit": "vue-cli-service test:unit",
         "lint": "vue-cli-service lint",
-        "docs:dev": "vuepress dev docs",
-        "docs:build": "vuepress build docs"
+        "error:docs:dev": "vuepress dev docs",
+        "error:docs:build": "vuepress build docs"
     },
     "dependencies": {
         "compression-webpack-plugin": "^6.0.3",
