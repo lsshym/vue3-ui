@@ -1,4 +1,4 @@
-import Button from "../components/button/index";
+import Button from "../lib/button/index";
 
 const components = [Button];
 
