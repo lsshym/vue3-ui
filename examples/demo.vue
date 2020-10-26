@@ -1,5 +1,6 @@
 <template>
-  <Button @click="test">123</Button>
+  <Input v-model="test" />
+  {{ test }}
 </template>
 
 <script lang='ts'>
@@ -8,15 +9,14 @@ export default defineComponent({
   name: "",
   components: {},
   data() {
-    return {};
+    return {
+      test: 1,
+    };
   },
   methods: {
-    test() {
-      console.log("12345");
-    },
+
   },
 });
 </script>
 
-<style lang='scss' scoped>
-</style>
+

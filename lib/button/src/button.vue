@@ -1,11 +1,20 @@
 <template>
-  <button class="bcy-button" @click="handleClick">
+  <button
+    class="bcy-button"
+    @click="handleClick"
+    :class="[
+      {
+        'is-disabled': buttonDisabled,
+      },
+    ]"
+    :disabled="buttonDisabled"
+  >
     <span v-if="$slots.default"><slot></slot></span>
   </button>
 </template>
 
 <script lang='ts'>
-import { defineComponent } from "vue";
+import { defineComponent, computed, reactive } from "vue";
 export default defineComponent({
   name: "Button",
   props: {
@@ -13,17 +22,23 @@ export default defineComponent({
       type: String,
       default: "",
       validator: (value: string) => {
-        // 这个值必须匹配下列字符串中的一个
         return ["success", "warning", "danger", ""].indexOf(value) !== -1;
+      },
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
+      validator: (value: boolean) => {
+        return [true, false].indexOf(value) !== -1;
       },
     },
   },
   data() {
     return {};
   },
-  setup(prop, { emit }) {
+  setup(props, { emit }) {
     // 其实这里根本不需要这个，但是我就要写
-    const handleClick = (evt: any) => {
+    const handleClick = (evt: MouseEvent) => {
       //不执行的话会调两次,那为什么element的就不用写
       evt.stopImmediatePropagation();
       /* 为何会调用两次，而且拦截冒泡无法阻止 
@@ -33,8 +48,13 @@ export default defineComponent({
       // evt.stopPropagation();
       emit("click", evt);
     };
+    const buttonDisabled = computed(() => {
+      // 未更新表单情况下
+      return props.disabled;
+    });
     return {
       handleClick,
+      buttonDisabled,
     };
   },
 });
@@ -51,6 +71,12 @@ export default defineComponent({
   outline: none;
   &:hover {
     background: #ebf5ff;
+  }
+  // 这么神奇的吗
+  &.is-disabled {
+    color: #c0c4cc;
+    cursor: not-allowed;
+    background: #fff;
   }
 }
 </style>

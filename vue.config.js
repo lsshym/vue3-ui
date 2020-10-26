@@ -2,7 +2,6 @@
 const devConfig = require("./configFiles/dev.config.ts");
 const prodConfig = require("./configFiles/prod.config.ts");
 const path = require("path");
-const copy = require('copy')
 module.exports = {
     publicPath: process.env.NODE_ENV === "production" ? "/dist/" : "./", // 打包输出的文件路径
     outputDir: path.resolve(__dirname, "./dist"), // 打包后输出文件的所在目录

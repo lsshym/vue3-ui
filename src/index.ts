@@ -1,6 +1,6 @@
 import Button from "../lib/button/index";
-
-const components = [Button];
+import Input from "../lib/input/index";
+const components = [Button, Input];
 
 /* Vue3的安装方法有点奇特，传入的不再是Vue2的Vue实例
 ，而是createApp创建出来的 */
@@ -14,7 +14,7 @@ const install = (app: any) => {
     });
 };
 
-export { install, Button };
+export { install, Button, Input };
 export default {
     install,
 };
