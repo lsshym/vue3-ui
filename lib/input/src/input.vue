@@ -25,9 +25,9 @@ export default defineComponent({
     modelValue: {
       type: [String, Number],
     },
-    placeholder:{
-      type:String,
-    }
+    placeholder: {
+      type: String,
+    },
   },
   setup(props, { emit }) {
     const handleInput = (evt: InputEvent) => {
@@ -54,6 +54,14 @@ export default defineComponent({
   font-size: 14px;
   & .bcy-input__inner {
     outline: none;
+    border-radius: 4px;
+    height: 35px;
+    line-height: 35px;
+    border: 1px solid #dcdfe6;
+    padding: 0 15px;
+    &:focus {
+      border-color: #409eff;
+    }
   }
 }
 </style>
