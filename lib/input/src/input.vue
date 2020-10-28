@@ -17,7 +17,6 @@
 import { defineComponent } from "vue";
 export default defineComponent({
   name: "Input",
-  components: {},
   props: {
     type: {
       type: String,

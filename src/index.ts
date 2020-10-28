@@ -1,5 +1,7 @@
 import Button from "../lib/button/index";
 import Input from "../lib/input/index";
+import Form from "../lib/form/index";
+
 const components = [Button, Input];
 
 /* Vue3的安装方法有点奇特，传入的不再是Vue2的Vue实例
