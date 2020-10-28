@@ -6,6 +6,7 @@
         class="bcy-input__inner"
         :value="modelValue"
         :placeholder="placeholder"
+        :disabled="inputDisabled"
         @input="handleInput"
         @change="handleChange"
       />
@@ -14,7 +15,7 @@
 </template>
 
 <script lang='ts'>
-import { defineComponent } from "vue";
+import { defineComponent, computed } from "vue";
 export default defineComponent({
   name: "Input",
   props: {
@@ -27,6 +28,9 @@ export default defineComponent({
     placeholder: {
       type: String,
     },
+    disabled: {
+      type: Boolean,
+    },
   },
   setup(props, { emit }) {
     const handleInput = (evt: InputEvent) => {
@@ -38,7 +42,11 @@ export default defineComponent({
       //失去焦点的时候才触发，这么神奇的吗
       emit("change", (evt.target as HTMLInputElement).value);
     };
+    const inputDisabled = computed(() => {
+      return props.disabled;
+    });
     return {
+      inputDisabled,
       handleInput,
       handleChange,
     };

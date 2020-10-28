@@ -1,19 +1,26 @@
 <template>
-<Radio></Radio>
+
 </template>
 
 <script lang="ts">
 import {
     defineComponent
-} from "vue";
+} from 'vue';
 export default defineComponent({
-    name: "",
+    name: '',
     components: {},
-    data() {
-        return {
-            test: 1,
-        };
+    props: {
+
     },
-    methods: {},
-});
+    setup(props) {
+
+        return {
+
+        }
+    },
+})
 </script>
+
+<style lang='scss' scoped>
+
+</style>
