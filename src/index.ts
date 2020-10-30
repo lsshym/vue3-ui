@@ -1,8 +1,9 @@
 import Button from "../lib/button/index";
 import Input from "../lib/input/index";
 import Radio from "../lib/radio/index";
+import Switch from "../lib/switch/index";
 
-const components = [Button, Input, Radio];
+const components = [Button, Input, Radio, Switch];
 
 /* Vue3的安装方法有点奇特，传入的不再是Vue2的Vue实例
 ，而是createApp创建出来的 */
@@ -16,7 +17,7 @@ const install = (app: any) => {
     });
 };
 
-export { install, Button, Input, Radio };
+export { install, Button, Input, Radio, Switch };
 export default {
     install,
 };

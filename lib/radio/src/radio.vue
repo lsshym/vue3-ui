@@ -26,7 +26,7 @@ export default defineComponent({
             type: Boolean,
         },
         value: {
-            type: Object,
+            type: [String, Number, Boolean],
         },
     },
     setup(props) {

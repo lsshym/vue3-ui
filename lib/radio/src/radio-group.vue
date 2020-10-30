@@ -1,26 +1,20 @@
 <template>
-
+<slot></slot>
 </template>
 
 <script lang="ts">
 import {
     defineComponent
-} from 'vue';
+} from "vue";
 export default defineComponent({
-    name: '',
+    name: "RadioGroup",
     components: {},
-    props: {
-
-    },
+    props: {},
     setup(props) {
-
-        return {
-
-        }
+        return {};
     },
-})
+});
 </script>
 
 <style lang='scss' scoped>
-
 </style>
