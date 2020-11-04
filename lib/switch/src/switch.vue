@@ -5,6 +5,11 @@
             borderColor: switchColor,
             backgroundColor: switchColor,
         }"
+        :class="[
+            {
+                'is-checked': checked,
+            },
+        ]"
         @click="switchClick"
     >
         <span :class="['bcy-switch__label', 'bcy-switch__label--left']"></span>
@@ -42,15 +47,20 @@ export default defineComponent({
         const { modelValue, activeColor, inactiveColor } = toRefs(props)
 
         const coreWidth = ref(props.width || 40)
+        const checked = computed(() => {
+            return modelValue.value
+        })
         const switchColor = computed(() => {
             return modelValue.value ? activeColor.value : inactiveColor.value
         })
+
         const switchClick = () => {
             emit('update:modelValue', !modelValue.value)
         }
         return {
             coreWidth,
             switchColor,
+            checked,
             switchClick,
         }
     },
@@ -63,11 +73,6 @@ $bcy-switch__core-height: 20px;
 .bcy-switch {
     display: inline-flex;
     border-radius: 18px;
-
-    & .bcy-switch__label {
-        // border-radius: 18px;
-    }
-
     & .bcy-switch__core {
         height: $bcy-switch__core-height;
         width: 40px;
@@ -89,6 +94,15 @@ $bcy-switch__core-height: 20px;
             -moz-border-radius: 100%;
             -webkit-border-radius: 100%;
             border-radius: 100%;
+            transition: all 0.3s;
+        }
+    }
+}
+.is-checked {
+    & .bcy-switch__core {
+        &::after {
+            left: 100%;
+            margin-left: -17px;
         }
     }
 }
