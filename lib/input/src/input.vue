@@ -34,12 +34,11 @@ export default defineComponent({
   },
   setup(props, { emit }) {
     const handleInput = (evt: InputEvent) => {
-      // 纯input可能用不到了，先保留
+      // 可能用不到了，先保留
       emit("input", (evt.target as HTMLInputElement).value);
       emit("update:modelValue", (evt.target as HTMLInputElement).value);
     };
     const handleChange = (evt: InputEvent) => {
-      //失去焦点的时候才触发，这么神奇的吗
       emit("change", (evt.target as HTMLInputElement).value);
     };
     const inputDisabled = computed(() => {

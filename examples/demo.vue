@@ -1,6 +1,7 @@
 <template>
-    <Switch v-model="bool" ></Switch>
-    {{ bool }}
+    <Container dir>
+        <Main>内容测试</Main>
+    </Container>
 </template>
 
 <script lang="ts">
@@ -13,7 +14,7 @@ export default defineComponent({
             test: 1,
             bool: false,
         }
-    },
+    },                                                                                                                                                                                                                                                                 
     methods: {
         // testMethods(value: any) {
         //     console.log(value)

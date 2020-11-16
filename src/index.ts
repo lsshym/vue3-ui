@@ -1,9 +1,11 @@
-import Button from "../lib/button/index";
-import Input from "../lib/input/index";
-import Radio from "../lib/radio/index";
-import Switch from "../lib/switch/index";
+import Button from '../lib/button/index'
+import Input from '../lib/input/index'
+import Radio from '../lib/radio/index'
+import Switch from '../lib/switch/index'
+import Main from '../lib/main/index'
+import Container from '../lib/container/index'
 
-const components = [Button, Input, Radio, Switch];
+const components = [Button, Input, Radio, Switch, Container, Main]
 
 /* Vue3的安装方法有点奇特，传入的不再是Vue2的Vue实例
 ，而是createApp创建出来的 */
@@ -12,12 +14,12 @@ import xxx from 'xxx'
 app.use(xxx)
 */
 const install = (app: any) => {
-    components.forEach((component) => {
-        app.component(component.name, component);
-    });
-};
+    components.forEach(component => {
+        app.component(component.name, component)
+    })
+}
 
-export { install, Button, Input, Radio, Switch };
+export { install, Button, Input, Radio, Switch }
 export default {
     install,
-};
+}
