@@ -7,7 +7,7 @@
 <script lang="ts">
 import { computed, defineComponent, toRefs } from 'vue'
 export default defineComponent({
-    name: `Container`,
+    name: `m-container`,
     props: {
         direction: {
             type: String,

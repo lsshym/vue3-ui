@@ -21,7 +21,7 @@
 <script lang="ts">
 import { defineComponent, ref, toRefs, computed } from 'vue'
 export default defineComponent({
-    name: 'Switch',
+    name: 'm-switch',
     components: {},
     props: {
         disabled: {
