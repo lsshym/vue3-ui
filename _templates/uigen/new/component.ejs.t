@@ -8,7 +8,7 @@ to: lib/<%= name %>/src/<%= name %>.vue
 <script lang='ts'>
 import { defineComponent } from 'vue';
 export default defineComponent({
-  name: `<%= h.changeCase.upperCaseFirst(name) %>`,
+  name: `m-<%= name %>`,
   components: {},
   props: {
 

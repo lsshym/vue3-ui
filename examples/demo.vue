@@ -1,5 +1,12 @@
 <template>
- 
+    <m-menu :style="{
+        background: 'black'
+    }">
+        <m-menu-item>测试1</m-menu-item>
+        <m-menu-item>测试1</m-menu-item>
+        <m-menu-item>测试1</m-menu-item>
+        <m-menu-item>测试1</m-menu-item>
+    </m-menu>
 </template>
 
 <script lang="ts">

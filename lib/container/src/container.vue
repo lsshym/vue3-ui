@@ -36,9 +36,8 @@ export default defineComponent({
 .bcy-container {
     display: flex;
     flex-direction: row;
-    border: 1px solid red;
 }
-.is-vertical{
+.is-vertical {
     flex-direction: column;
 }
 </style>
