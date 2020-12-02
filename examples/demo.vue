@@ -1,7 +1,5 @@
 <template>
-    <m-menu :style="{
-        'bac'
-    }">
+    <m-menu >
         <m-menu-item>测试1</m-menu-item>
         <m-menu-item>测试1</m-menu-item>
         <m-menu-item>测试1</m-menu-item>
