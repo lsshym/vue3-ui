@@ -10,6 +10,7 @@
         <span>
             <slot></slot>
         </span>
+        <button @click="">有点难</button>
     </li>
 </template>
 
@@ -23,8 +24,12 @@ export default defineComponent({
         const isHorizontal = computed(() => {
             return rootMenu.isHorizontal.value
         })
+        const testClick = ()=>{
+
+        }
         return {
             isHorizontal,
+            testClick,
         }
     },
 })

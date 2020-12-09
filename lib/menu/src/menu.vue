@@ -1,5 +1,5 @@
 <template>
-    <ul class="bcy-menu" :style="{ ...style }" :class="[{ 'bcy-menu--horizontal': isHorizontal }]">
+    <ul class="bcy-menu" :style="{ ...style }" :class="[{ 'bcy-menu--horizontal': isHorizontal }]" @click="handleClick">
         <slot></slot>
     </ul>
 </template>
@@ -32,11 +32,15 @@ export default defineComponent({
                 return false
             }
         })
+        const handleClick = ()=>{
+            console.log('??????')
+        }
         provide('rootMenu', {
             isHorizontal,
         })
         return {
             isHorizontal,
+            handleClick
         }
     },
 })
