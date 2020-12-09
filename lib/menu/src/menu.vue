@@ -1,11 +1,15 @@
 <template>
-    <ul class="bcy-menu" :style="{ ...style }" :class="[{ 'bcy-menu--horizontal': isHorizontal }]" @click="handleClick">
+    <ul
+        class="bcy-menu"
+        :style="{ ...style }"
+        :class="[{ 'bcy-menu--horizontal': isHorizontal }]"
+        @test="handleClick">
         <slot></slot>
     </ul>
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, provide, reactive, toRefs } from 'vue'
+import { computed, defineComponent, provide, toRefs } from 'vue'
 export default defineComponent({
     name: `m-menu`,
     props: {
@@ -20,10 +24,9 @@ export default defineComponent({
             },
         },
     },
-
     setup(props) {
         const { mode } = toRefs(props)
-        
+
         const isHorizontal = computed(() => {
             if (mode.value === 'horizontal') {
                 return true
@@ -32,15 +35,15 @@ export default defineComponent({
                 return false
             }
         })
-        const handleClick = ()=>{
-            console.log('??????')
+        const handleClick = (value: any) => {
+            console.log(value)
         }
         provide('rootMenu', {
             isHorizontal,
         })
         return {
             isHorizontal,
-            handleClick
+            handleClick,
         }
     },
 })

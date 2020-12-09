@@ -10,7 +10,7 @@
         <span>
             <slot></slot>
         </span>
-        <button @click="">有点难</button>
+        <button @click="testClick">有点难</button>
     </li>
 </template>
 
@@ -18,14 +18,16 @@
 import { computed, defineComponent, inject } from 'vue'
 export default defineComponent({
     name: `m-menu-item`,
-    setup() {
+    emits:['test'],
+    setup(props,{emit}) {
+        
         const rootMenu = inject<any>('rootMenu')
 
         const isHorizontal = computed(() => {
             return rootMenu.isHorizontal.value
         })
         const testClick = ()=>{
-
+            emit('test',1)
         }
         return {
             isHorizontal,
