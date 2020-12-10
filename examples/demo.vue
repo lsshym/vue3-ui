@@ -1,37 +1,30 @@
 <template>
-    <m-menu >
+    <!-- <m-menu >
         <m-menu-item>测试1</m-menu-item>
         <m-menu-item>测试1</m-menu-item>
         <m-menu-item>测试1</m-menu-item>
         <m-menu-item>测试1</m-menu-item>
-    </m-menu>
+    </m-menu> -->
+
+        <button @click="handleClick">测试</button>
+
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 export default defineComponent({
-    name: '',
-    components: {},
-    data() {
-        return {
-            test: 1,
-            bool: false,
+    name: 'Demo',
+    setup(){
+        const handleClick = (value:any)=>{
+            console.log('触发handleClick',value)
         }
-    },
-    methods: {
-        // testMethods(value: any) {
-        //     console.log(value)
-        // },
-    },
+        return {
+            handleClick
+        }
+    }
 })
 </script>
 
 <style lang="scss" scoped>
-.test {
-    width: 100px;
-    height: 100px;
-    margin-left: 30px;
-    padding: 20px;
-    border: 1px solid red;
-}
+
 </style>

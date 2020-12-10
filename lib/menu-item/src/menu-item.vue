@@ -6,11 +6,12 @@
                 'bcy-menu-item--horizontal': isHorizontal,
             },
         ]"
+        @click="handleLiClick"
     >
         <span>
             <slot></slot>
         </span>
-        <button @click="testClick">有点难</button>
+      
     </li>
 </template>
 
@@ -19,19 +20,19 @@ import { computed, defineComponent, inject } from 'vue'
 export default defineComponent({
     name: `m-menu-item`,
     emits:['test'],
-    setup(props,{emit}) {
-        
+    setup(props) {
         const rootMenu = inject<any>('rootMenu')
-
+        
         const isHorizontal = computed(() => {
             return rootMenu.isHorizontal.value
         })
-        const testClick = ()=>{
-            emit('test',1)
+        const handleLiClick = ()=>{
+            console.log('已经触发了')
+            rootMenu.ctx.emit('aaaaaaaaaaaaaa','ok')
         }
         return {
             isHorizontal,
-            testClick,
+            handleLiClick,
         }
     },
 })

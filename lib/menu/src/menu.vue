@@ -3,7 +3,8 @@
         class="bcy-menu"
         :style="{ ...style }"
         :class="[{ 'bcy-menu--horizontal': isHorizontal }]"
-        @test="handleClick">
+        @aaaaaaaaaaaaaa="handleClick"
+    >
         <slot></slot>
     </ul>
 </template>
@@ -24,7 +25,7 @@ export default defineComponent({
             },
         },
     },
-    setup(props) {
+    setup(props, ctx) {
         const { mode } = toRefs(props)
 
         const isHorizontal = computed(() => {
@@ -39,13 +40,14 @@ export default defineComponent({
             console.log(value)
         }
         provide('rootMenu', {
+            ctx,
             isHorizontal,
         })
         return {
             isHorizontal,
             handleClick,
         }
-    },
+    }, 
 })
 </script>
 
