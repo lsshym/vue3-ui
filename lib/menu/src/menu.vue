@@ -1,16 +1,12 @@
 <template>
-    <ul
-        class="bcy-menu"
-        :style="{ ...style }"
-        :class="[{ 'bcy-menu--horizontal': isHorizontal }]"
-        @aaaaaaaaaaaaaa="handleClick"
-    >
+    <ul class="bcy-menu" :style="{ ...style }" :class="[{ 'bcy-menu--horizontal': isHorizontal }]">
         <slot></slot>
     </ul>
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, provide, toRefs } from 'vue'
+import { computed, defineComponent, onMounted, provide, toRefs } from 'vue'
+import mitt from 'mitt'
 export default defineComponent({
     name: `m-menu`,
     props: {
@@ -26,28 +22,32 @@ export default defineComponent({
         },
     },
     setup(props, ctx) {
-        const { mode } = toRefs(props)
+        const rootMenuEmitter = mitt()
 
         const isHorizontal = computed(() => {
-            if (mode.value === 'horizontal') {
+            if (props.mode === 'horizontal') {
                 return true
             }
-            if (mode.value === 'vertical') {
+            if (props.mode === 'vertical') {
                 return false
             }
         })
-        const handleClick = (value: any) => {
-            console.log(value)
+        const handleItemClick = (value: any) => {
+            ctx.emit('click', value)
         }
         provide('rootMenu', {
             ctx,
             isHorizontal,
+            rootMenuEmit: rootMenuEmitter.emit,
+            rootMenuOn: rootMenuEmitter.on,
+        })
+        onMounted(() => {
+            rootMenuEmitter.on('menuItem:item-click', handleItemClick)
         })
         return {
             isHorizontal,
-            handleClick,
         }
-    }, 
+    },
 })
 </script>
 

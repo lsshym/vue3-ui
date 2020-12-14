@@ -7,32 +7,42 @@
             },
         ]"
         @click="handleLiClick"
+        ref="liDom"
     >
         <span>
             <slot></slot>
         </span>
-      
     </li>
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, inject } from 'vue'
+import { computed, defineComponent, inject, ref, toRefs } from 'vue'
 export default defineComponent({
     name: `m-menu-item`,
-    emits:['test'],
-    setup(props) {
+    props: {
+        index: {
+            type: [String, Number],
+            require: true,
+        },
+    },
+    setup(props, { emit }) {
         const rootMenu = inject<any>('rootMenu')
-        
+
+        const liDom = ref<any>(null)
         const isHorizontal = computed(() => {
             return rootMenu.isHorizontal.value
         })
-        const handleLiClick = ()=>{
-            console.log('已经触发了')
-            rootMenu.ctx.emit('aaaaaaaaaaaaaa','ok')
+        const handleLiClick = (evt: MouseEvent) => {
+            evt.stopPropagation()
+            emit('click', props.index, liDom.value)
+            rootMenu.rootMenuEmit('menuItem:item-click', {
+                index: props.index,
+            })
         }
         return {
             isHorizontal,
             handleLiClick,
+            liDom,
         }
     },
 })
@@ -56,7 +66,7 @@ export default defineComponent({
         background: #ecf5ff;
     }
 }
-.bcy-menu-item--horizontal{
+.bcy-menu-item--horizontal {
     display: inline;
 }
 </style>

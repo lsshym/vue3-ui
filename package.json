@@ -25,6 +25,7 @@
     "dependencies": {
         "compression-webpack-plugin": "^6.0.3",
         "core-js": "^3.6.5",
+        "mitt": "^2.1.0",
         "vue": "^3.0.0",
         "vuepress": "^1.7.1"
     },
