@@ -1,7 +1,7 @@
 <template>
-    <m-menu @click="handleClick">
-        <m-menu-item>测试1</m-menu-item>
-        <m-menu-item>测试2</m-menu-item>
+    <m-menu @select="handleClick">
+        <m-menu-item index="1">测试1</m-menu-item>
+        <m-menu-item index="2">测试2</m-menu-item>
     </m-menu>
 </template>
 

@@ -33,7 +33,7 @@ export default defineComponent({
             }
         })
         const handleItemClick = (value: any) => {
-            ctx.emit('click', value)
+            ctx.emit('select', value)
         }
         provide('rootMenu', {
             ctx,
