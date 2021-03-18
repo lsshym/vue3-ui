@@ -1,20 +1,24 @@
 <template>
-    <m-menu @select="handleClick">
-        <m-menu-item index="1">测试1</m-menu-item>
-        <m-menu-item index="2">测试2</m-menu-item>
-    </m-menu>
+    <m-button @click="openDialog">打开弹窗</m-button>
+    <input type="text">
+    <m-dialog v-model="dialogVisible">
+        <span>这是一段信息</span>
+    </m-dialog>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
 export default defineComponent({
     name: 'Demo',
     setup() {
-        const handleClick = (index: any) => {
-            console.log('触发handleClick', index)
+        const dialogVisible = ref(false)
+
+        const openDialog = () => {
+            dialogVisible.value = true
         }
         return {
-            handleClick,
+            dialogVisible,
+            openDialog,
         }
     },
 })
