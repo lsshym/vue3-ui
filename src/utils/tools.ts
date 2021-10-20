@@ -1,3 +1,4 @@
+// 下载文件的小工具
 export const downLoadFileByUrl = (url: string) => {
     let eleLink = document.createElement('a')
     eleLink.download = '默认文件名'
