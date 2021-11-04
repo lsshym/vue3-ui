@@ -8,28 +8,33 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent, onMounted, ref } from 'vue';
 
-interface TestA {
-  a: number;
-  c: number;
-}
-interface TestB {
-  b: number;
-}
-type TestC = TestA | TestB;
 export default defineComponent({
   name: 'Demo',
   setup() {
-    // const test = {
-    //     a: 1,
-    //     b: 2,
-    // } as TestC
-    const cnm = () => {
-      //
+    let num = 0;
+    const testC = async () => {
+      await new Promise<void>((res) => {
+        setTimeout(() => {
+          num++;
+          res();
+        }, 1000);
+      });
+    };
+    const testA = async () => {
+      await testC();
     };
 
-    const testa = 1;
+    const test = async () => {
+      await testA();
+      console.log('最后', num);
+    };
+
+    onMounted(() => {
+      test();
+    });
+
     return {
       // test,
     };
