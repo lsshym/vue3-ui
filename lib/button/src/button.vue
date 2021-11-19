@@ -39,7 +39,7 @@ export default defineComponent({
     setup(props, { emit }) {
         // 其实这里根本不需要这个，但是我就要写
         const handleClick = (evt: MouseEvent) => {
-            //不执行的话会调两次,那为什么element的就不用写
+            // 不执行的话会调两次,那为什么element的就不用写
             evt.stopImmediatePropagation()
             /* 为何会调用两次，而且拦截冒泡无法阻止 
       因为Vue3最外层不用套一个div，使用的时候
